@@ -1,5 +1,6 @@
 import React from "react";
 import offers from "../data/offers";
+import Service from "./Service";
 
 const Services = () => {
   return (
@@ -7,16 +8,9 @@ const Services = () => {
       <section class="services" id="services">
         <h2 class="services-h2">Czym zajmuje się nasza firma?</h2>
         <ul class="services-boxes">
-          {offers.map(({ id, name, isNew }) =>
-            isNew ? (
-              <li key={id}>
-                <span class="services-box-reddot"></span>
-                <span class="services-box-new">{name} (nowość)</span>
-              </li>
-            ) : (
-              <li>{name}</li>
-            )
-          )}
+          {offers.map(({ id, name, isNew }) => (
+            <Service id={id} name={name} isNew={isNew} />
+          ))}
         </ul>
       </section>
     </div>
